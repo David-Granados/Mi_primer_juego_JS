@@ -2,8 +2,31 @@ body{
     background-image: url(/images/index/fondo.png);
     background-repeat: repeat;    
 }
-header{
-	
+header{	
 	width: 100%;
 }
+#logo {
+    width: auto;
+    height: 100px;
+    background-image: url(/images/index/logo.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: auto 100%;
+    margin-top: -10px;
+    margin-left: 0px;
+}
+#juegos{
+    
+    
 
+}
+input{
+    width: 400px;
+    height: 400px;
+}
+#boton1 {
+    
+}
+#boton2 {
+    
+}
