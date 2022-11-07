@@ -22,8 +22,6 @@ function moveBullets() {
     }
 }
 
-
-
 //Control hero animations
 var hero = {
     x: 300,
@@ -33,7 +31,6 @@ function controllHero() {
     document.getElementById('hero').style['top'] = hero.y + "px";
     document.getElementById('hero').style['left'] = hero.x + "px";
 }
-
 
 document.onkeydown = (a) => {
     if (a.key == 'ArrowUp' && hero.y>0) {
@@ -55,10 +52,19 @@ document.onkeydown = (a) => {
 }
 
 
-
 //Control enemy animations
 
-var enemies = [{ x: 50, y: 50 }, { x: 250, y: 80 }, { x: 450, y: 30 },{ x: 40, y: 50 },{ x: 300, y: 50 },{ x: 400, y: 30 }];
+
+
+var enemies = [
+    { x: 50, y: 50 },
+    { x: 250, y: 80 },
+    { x: 450, y: 30 },
+    { x: 80, y: 50 },
+    { x: 280, y: 50 },
+    { x: 390, y: 30 }];
+
+
 
 function controllEnemies() {
     var ouput = ""
@@ -79,16 +85,21 @@ function moveEnemies() {
     }
 }
 //Detect collision
+var finalizarNivel = false;
 function detectCollision() {
     for (let i = 0; i < bullet.length; i++) {
         for (let j = 0; j < enemies.length; j++) {
-            if(Math.abs(bullet[i].x - enemies[j].x) <5 && Math.abs(bullet[i].y - enemies[j].y) <5){
+            if(Math.abs(bullet[i].x - enemies[j].x) <10 && Math.abs(bullet[i].y - enemies[j].y) <10){
                 enemies[j] = enemies[enemies.length-1];
                 bullet[i] = bullet[bullet.length-1];
                 score += 10;
                 enemies.pop();
                 bullet.pop();
+                if(enemies.length == 0){
+                    finalizarNivel = true;
+                }
             }
+            
         }       
     }
 }
@@ -96,13 +107,34 @@ function detectCollision() {
 
 // Loop for game
 function gameLoop() {
-    controllHero();
-    moveEnemies();
-    controllEnemies();
-    moveBullets();
-    controllBullet();
-    detectCollision();
-    controllScore();
+    if(!finalizarNivel || score <60){
+        controllHero();
+        moveEnemies();
+        controllEnemies();
+        moveBullets();
+        controllBullet();
+        detectCollision();
+        controllScore();
+    }else{
+        alert('Ha acabado el nivel 1');
+        window.location.href = '/index.html';
+    }
 }
 
-setInterval(gameLoop,100);
+var id;
+var startGame=document.getElementById("start");
+var stopGame=document.getElementById("stop");
+startGame.onclick = ()=>{
+    if(!startGame.checked){
+    id = setInterval(gameLoop,100);
+    startGame.checked = true;
+    stopGame.checked = false;
+    }
+};
+stopGame.onclick = ()=>{
+    if(!stopGame.checked){
+    clearInterval(id);
+    startGame.checked = false;
+    stopGame.checked = true;
+    }
+};

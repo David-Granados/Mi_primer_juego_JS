@@ -21,35 +21,22 @@ input{
     height: 400px;
 }
 #games{
-    width:1000px;
-    height:1000px;
+    width:500px;
+    height:100vh;
     margin:0px auto;
     padding:0px;
     position:relative;
     margin-top: 100px;
+    color: black;
 }
 #boton1 {
-    color: black;
     font-size: 30px;
-    background-image: url(/images/game1/game1.PNG);
+    background-image: url("/images/index/game.PNG");
     background-repeat: no-repeat;
     background-position: bottom;
-    width:400px;
-    height:400px;
+    width:500px;
+    height:550px;
     margin:0px auto;
     padding:0px;
-    position:relative;
-    margin-top: 100px;
-
-}
-#boton2 {
-    color: black;
-    font-size: 30px;
-    background-image: url(/images/game2/bg-duck-hunter.png);
-    width:400px;
-    height:400px;
-    margin:0px auto;
-    padding:0px;
-    position:relative;
-    margin-top: 100px;
+    position:absolute;
 }

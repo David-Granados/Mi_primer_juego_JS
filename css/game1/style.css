@@ -1,13 +1,16 @@
-body{
+body {
     background-image: url(/images/index/fondo.png);
-    background-repeat: repeat;    
+    background-repeat: repeat;
 }
-header{	
-	width: 100%;
+
+header {
+    width: 100%;
 }
+
 #logo {
     width: auto;
     height: 100px;
+    image-rendering: optimizeQuality;
     background-image: url(/images/index/logo.png);
     background-repeat: no-repeat;
     background-position: left;
@@ -15,50 +18,86 @@ header{
     margin-top: -10px;
     margin-left: 0px;
 }
-#container{
-    background: url('/images/game1/background.jpg');
-    width:500px;
-    height:550px;
-    margin:0px auto;
-    padding:0px;
-    position:relative;
+#game-container{
+    width: 500px;
+    height: 550px;
+    margin: 0px auto;
+    padding: 0px;
+    position: relative;
     margin-top: 100px;
-    border:5px solid black;
 }
-#hero{
+#container {
+    background-color: blue;
+    width: 500px;
+    height: 550px;
+    margin: 0px auto;
+    padding: 0px;
+    position: relative;
+    margin-top: 100px;
+    border: 5px solid black;
+}
+
+#hero {
     background: url('/images/game1/1942.gif');
     background-position: -85px -180px;
-    width:28px;
-    height:28px;
-    position:absolute;
+    width: 28px;
+    height: 28px;
+    position: absolute;
 }
-.enemy1{
+
+.enemy1 {
     background: url('/images/game1/1942.gif');
     background-position: -30px -10px;
-    width:28px;
-    height:28px;
-    position:absolute;
+    width: 28px;
+    height: 28px;
+    position: absolute;
 }
-.bullet{
+
+.bullet {
     background: url('/images/game1/1942.gif');
     background-position: -185px -400px;
-    width:18px;
-    height:18px;
-    position:absolute;
+    width: 18px;
+    height: 18px;
+    position: absolute;
 }
-#score{
-    position:absolute;
-    border:5px solid green;
-    top:15px;
-    left:1150px;
+
+#score {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
     color: white;
-    background-color:black;
-    padding:10px;
-    margin-top: 200px;
-    font-size:30px;
-    font-family: Arial;	
+    padding: 0;
+    margin-top: 0;
+    font-size: 40px;
+    font-family: Arial;
 }
-#header{
+
+#level {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: white;
+    padding: 0;
+    margin-top: 0;
+    font-size: 40px;
+    font-family: Arial;
+}
+
+#header {
     background-color: white;
+}
+
+#start,
+#stop {
+    position: relative;
+    width: 240px;
+    bottom: 0;
+    color: black;
+    padding: 0;
+    border-radius: 40px;
+    margin-top: 0;
+    font-size: 30px;
+    font-family: Arial;
+    margin-top: 5px;
     
 }
