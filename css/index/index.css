@@ -4,6 +4,7 @@ body{
 }
 header{	
 	width: 100%;
+    background-color: white;
 }
 #logo {
     width: auto;
