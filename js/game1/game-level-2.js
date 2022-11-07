@@ -98,6 +98,7 @@ function detectCollision() {
                 if(enemies.length == 0){
                     finalizarNivel = true;
                 }
+                
             }
             
         }       
@@ -116,8 +117,8 @@ function gameLoop() {
         detectCollision();
         controllScore();
     }else{
-        alert('Ha acabado el nivel 1');
-        window.location.href = '/index.html';
+        alert('Ha acabado el nivel 2');
+        window.location.href = '/html/game-level-3.html';
     }
 }
 
