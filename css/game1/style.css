@@ -1,27 +1,46 @@
 body{
-    background-color:black;
+    background-image: url(/images/index/fondo.png);
+    background-repeat: repeat;    
+}
+header{	
+	width: 100%;
+}
+#logo {
+    width: auto;
+    height: 100px;
+    background-image: url(/images/index/logo.png);
+    background-repeat: no-repeat;
+    background-position: left;
+    background-size: auto 100%;
+    margin-top: -10px;
+    margin-left: 0px;
 }
 #container{
-    background: url('images/game1/background.jpg');
-    width:1000px;
+    background: url('/images/game1/background.jpg');
+    width:500px;
     height:550px;
+    margin:0px auto;
+    padding:0px;
+    position:relative;
+    margin-top: 100px;
+    border:5px solid black;
 }
 #hero{
-    background: url('images/game1/1942.gif');
+    background: url('/images/game1/1942.gif');
     background-position: -85px -180px;
     width:28px;
     height:28px;
     position:absolute;
 }
 .enemy1{
-    background: url('images/game1/1942.gif');
+    background: url('/images/game1/1942.gif');
     background-position: -30px -10px;
     width:28px;
     height:28px;
     position:absolute;
 }
 .bullet{
-    background: url('images/game1/1942.gif');
+    background: url('/images/game1/1942.gif');
     background-position: -185px -400px;
     width:18px;
     height:18px;
@@ -29,11 +48,17 @@ body{
 }
 #score{
     position:absolute;
-    border:10px solid red;
-    top:20px;
-    left:800px;
-    background-color:white;
+    border:5px solid green;
+    top:15px;
+    left:1110px;
+    color: white;
+    background-color:black;
     padding:10px;
+    margin-top: 200px;
     font-size:30px;
     font-family: Arial;	
+}
+#header{
+    background-color: white;
+    
 }
