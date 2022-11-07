@@ -15,10 +15,11 @@ header{
     margin-top: -10px;
     margin-left: 0px;
 }
-#games{
-    
-    
 
+#games{
+    margin:0px auto;
+    padding:0px;
+    position:relative;
 }
 input{
     width: 400px;

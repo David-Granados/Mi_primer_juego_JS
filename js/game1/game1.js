@@ -1,3 +1,8 @@
+// Control Score
+var score = 0;
+function controllScore() {
+    document.getElementById('score').innerHTML = score;
+}
 //Control shoot and bullet
 var bullet = [];
 function controllBullet() {
@@ -9,13 +14,16 @@ function controllBullet() {
 }
 function moveBullets() {
     for (let index = 0; index < bullet.length; index++) {
-        enemies[index].y -= 5;
+        bullet[index].y -= 5;
         if(bullet[index].y <0){
             bullet[index] = bullet[bullet.length-1];
             bullet.pop();
         }
     }
 }
+
+
+
 //Control hero animations
 var hero = {
     x: 300,
@@ -25,6 +33,8 @@ function controllHero() {
     document.getElementById('hero').style['top'] = hero.y + "px";
     document.getElementById('hero').style['left'] = hero.x + "px";
 }
+
+
 document.onkeydown = (a) => {
     if (a.key == 'ArrowUp' && hero.y>0) {
         hero.y -= 10;
@@ -48,15 +58,16 @@ document.onkeydown = (a) => {
 
 //Control enemy animations
 
-var enemies = [{ x: 50, y: 50 }, { x: 250, y: 80 }, { x: 450, y: 30 }];
+var enemies = [{ x: 50, y: 50 }, { x: 250, y: 80 }, { x: 450, y: 30 },{ x: 40, y: 50 },{ x: 300, y: 50 },{ x: 400, y: 30 }];
 
-function controllEnemys() {
+function controllEnemies() {
     var ouput = ""
     for (let index = 0; index < enemies.length; index++) {
         ouput += "<div class='enemy1' style='top:" + enemies[index].y + "px; left:" + enemies[index].x + "px;'></div>";
     }
     document.getElementById('enemies').innerHTML = ouput;
 }
+
 function moveEnemies() {
     for (let index = 0; index < enemies.length; index++) {
         enemies[index].y += 5;
@@ -64,14 +75,34 @@ function moveEnemies() {
             enemies[index].y = 0;
             enemies[index].x = Math.random()*400;
         }
+        
     }
 }
+//Detect collision
+function detectCollision() {
+    for (let i = 0; i < bullet.length; i++) {
+        for (let j = 0; j < enemies.length; j++) {
+            if(Math.abs(bullet[i].x - enemies[j].x) <5 && Math.abs(bullet[i].y - enemies[j].y) <5){
+                enemies[j] = enemies[enemies.length-1];
+                bullet[i] = bullet[bullet.length-1];
+                score += 10;
+                enemies.pop();
+                bullet.pop();
+            }
+        }       
+    }
+}
+
+
 // Loop for game
 function gameLoop() {
     controllHero();
     moveEnemies();
-    controllEnemys();
+    controllEnemies();
     moveBullets();
     controllBullet();
+    detectCollision();
+    controllScore();
 }
+
 setInterval(gameLoop,100);
