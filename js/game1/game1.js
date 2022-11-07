@@ -1,8 +1,3 @@
-//Control hero animations
-var hero = {
-    x: 300,
-    y: 500
-}
 //Control shoot and bullet
 var bullet = [];
 function controllBullet() {
@@ -11,6 +6,20 @@ function controllBullet() {
         ouput += "<div class='bullet' style='top:" + bullet[index].y + "px; left:" + bullet[index].x + "px;'></div>";
     }
     document.getElementById('bullets').innerHTML = ouput;
+}
+function moveBullets() {
+    for (let index = 0; index < bullet.length; index++) {
+        enemies[index].y -= 5;
+        if(bullet[index].y <0){
+            bullet[index] = bullet[bullet.length-1];
+            bullet.pop();
+        }
+    }
+}
+//Control hero animations
+var hero = {
+    x: 300,
+    y: 500
 }
 function controllHero() {
     document.getElementById('hero').style['top'] = hero.y + "px";
@@ -30,7 +39,8 @@ document.onkeydown = (a) => {
         hero.x += 10;
     }
     if(a.key == ' '){
-        bullet.push({x:hero.x,y:hero.y,});
+        bullet.push({x:hero.x+7,y:hero.y-12});
+        controllBullet();
     }
 }
 
@@ -56,10 +66,12 @@ function moveEnemies() {
         }
     }
 }
+// Loop for game
 function gameLoop() {
     controllHero();
     moveEnemies();
     controllEnemys();
+    moveBullets();
     controllBullet();
 }
 setInterval(gameLoop,100);
