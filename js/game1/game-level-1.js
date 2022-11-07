@@ -100,6 +100,9 @@ function detectCollision() {
                 }
                 
             }
+            if(Math.abs(hero.x - enemies[j].x ) <10 && Math.abs(hero.y - enemies[j].y) <10){
+                finalizarNivel = true;
+            }
             
         }       
     }
@@ -108,7 +111,7 @@ function detectCollision() {
 
 // Loop for game
 function gameLoop() {
-    if(!finalizarNivel || score <60){
+    if(!finalizarNivel && score <60){
         controllHero();
         moveEnemies();
         controllEnemies();

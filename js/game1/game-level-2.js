@@ -62,7 +62,13 @@ var enemies = [
     { x: 450, y: 30 },
     { x: 80, y: 50 },
     { x: 280, y: 50 },
-    { x: 390, y: 30 }];
+    { x: 390, y: 30 },
+    { x: 150, y: 50 },
+    { x: 1250, y: 80 },
+    { x: 1050, y: 30 },
+    { x: 180, y: 50 },
+    { x: 1280, y: 50 },
+    { x: 1390, y: 30 }];
 
 
 
@@ -89,6 +95,7 @@ var finalizarNivel = false;
 function detectCollision() {
     for (let i = 0; i < bullet.length; i++) {
         for (let j = 0; j < enemies.length; j++) {
+            //Enemies dies
             if(Math.abs(bullet[i].x - enemies[j].x) <10 && Math.abs(bullet[i].y - enemies[j].y) <10){
                 enemies[j] = enemies[enemies.length-1];
                 bullet[i] = bullet[bullet.length-1];
@@ -98,7 +105,10 @@ function detectCollision() {
                 if(enemies.length == 0){
                     finalizarNivel = true;
                 }
-                
+            }
+            //Hero dies
+            if(Math.abs(hero.x - enemies[j].x) <10 && Math.abs(hero.y - enemies[j].y) <10){
+                finalizarNivel = true;
             }
             
         }       
@@ -108,7 +118,7 @@ function detectCollision() {
 
 // Loop for game
 function gameLoop() {
-    if(!finalizarNivel || score <60){
+    if(!finalizarNivel && score <120){
         controllHero();
         moveEnemies();
         controllEnemies();
