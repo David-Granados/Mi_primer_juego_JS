@@ -53,6 +53,14 @@ header {
     position: absolute;
 }
 
+.boss {
+    background: url('/images/game1/1942.gif');
+    background-position: -30px -10px;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+}
+
 .bullet {
     background: url('/images/game1/1942.gif');
     background-position: -185px -400px;

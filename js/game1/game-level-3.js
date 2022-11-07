@@ -56,46 +56,40 @@ document.onkeydown = (a) => {
 
 
 
-var enemies = [
-    { x: 50, y: 50 },
-    { x: 250, y: 80 },
-    { x: 450, y: 30 },
-    { x: 80, y: 50 },
-    { x: 280, y: 50 },
-    { x: 390, y: 30 }];
+var boss =[{x:50,y:50}];
 
 
 
-function controllEnemies() {
+
+function controllboss() {
     var ouput = ""
-    for (let index = 0; index < enemies.length; index++) {
-        ouput += "<div class='enemy1' style='top:" + enemies[index].y + "px; left:" + enemies[index].x + "px;'></div>";
+    for (let index = 0; index < boss.length; index++) {
+        ouput += "<div class='boss' style='top:" + boss[index].y + "px; left:" + boss[index].x + "px;'></div>";
     }
-    document.getElementById('enemies').innerHTML = ouput;
+    document.getElementById('boss').innerHTML = ouput;
 }
 
-function moveEnemies() {
-    for (let index = 0; index < enemies.length; index++) {
-        enemies[index].y += 5;
-        if(enemies[index].y >525){
-            enemies[index].y = 0;
-            enemies[index].x = Math.random()*400;
+function moveboss() {
+        boss.y += 5;
+        if(boss.y >525){
+            boss.y = 0;
+            boss.x = Math.random()*400;
         }
         
-    }
+    
 }
 //Detect collision
 var finalizarNivel = false;
 function detectCollision() {
     for (let i = 0; i < bullet.length; i++) {
-        for (let j = 0; j < enemies.length; j++) {
-            if(Math.abs(bullet[i].x - enemies[j].x) <10 && Math.abs(bullet[i].y - enemies[j].y) <10){
-                enemies[j] = enemies[enemies.length-1];
+        for (let j = 0; j < boss.length; j++) {
+            //Object boss 
+            if(Math.abs(bullet[i].x - boss.x) <10 && Math.abs(bullet[i].y - boss.y) <10){
                 bullet[i] = bullet[bullet.length-1];
                 score += 10;
-                enemies.pop();
+                boss.live = boss.live-10;
                 bullet.pop();
-                if(enemies.length == 0){
+                if(boss.live == 0){
                     finalizarNivel = true;
                 }
                 
@@ -110,8 +104,8 @@ function detectCollision() {
 function gameLoop() {
     if(!finalizarNivel || score <60){
         controllHero();
-        moveEnemies();
-        controllEnemies();
+        moveboss();
+        controllboss();
         moveBullets();
         controllBullet();
         detectCollision();
