@@ -1,5 +1,5 @@
 body{
-    background-image: url(/images/index/fondo.png);
+    background-image: url('images/index/fondo.png');
     background-repeat: repeat;    
 }
 header{	
@@ -9,7 +9,7 @@ header{
 #logo {
     width: auto;
     height: 100px;
-    background-image: url(/images/index/logo.png);
+    background-image: url('images/index/logo.png');
     background-repeat: no-repeat;
     background-position: left;
     background-size: auto 100%;
@@ -31,7 +31,7 @@ input{
 }
 #boton1 {
     font-size: 30px;
-    background-image: url("/images/index/game.PNG");
+    background-image: url('images/index/game.PNG');
     background-repeat: no-repeat;
     background-position: bottom;
     width:500px;

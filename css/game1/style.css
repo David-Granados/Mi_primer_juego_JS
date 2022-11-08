@@ -38,7 +38,7 @@ header {
 }
 
 #hero {
-    background: url('/images/game1/1942.gif');
+    background: url('images/game1/1942.gif');
     background-position: -85px -180px;
     width: 28px;
     height: 28px;
@@ -46,7 +46,7 @@ header {
 }
 
 .enemy1 {
-    background: url('/images/game1/1942.gif');
+    background: url('images/game1/1942.gif');
     background-position: -30px -10px;
     width: 28px;
     height: 28px;
@@ -54,7 +54,7 @@ header {
 }
 
 .boss {
-    background: url('/images/game1/1942.gif');
+    background: url('images/game1/1942.gif');
     background-position: -30px -10px;
     width: 28px;
     height: 28px;
@@ -62,7 +62,7 @@ header {
 }
 
 .bullet {
-    background: url('/images/game1/1942.gif');
+    background: url('images/game1/1942.gif');
     background-position: -185px -400px;
     width: 18px;
     height: 18px;
